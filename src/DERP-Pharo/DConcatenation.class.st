@@ -18,10 +18,9 @@ DConcatenation class >> lhs: lhs rhs: rhs [
 
 { #category : #'as yet unclassified' }
 DConcatenation >> derivative: aToken [
-
 	^ DUnion
 		  lhs: (self class 
-						lhs: self lhs delta 
+						lhs: (DNullability exp: lhs)
 						rhs: (self rhs derivative: aToken))
 		  rhs: (self class 
 						lhs: (self lhs derivative: aToken) 
