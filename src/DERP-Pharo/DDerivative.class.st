@@ -46,13 +46,13 @@ DDerivative >> visitEpsilon: anExpression [
 ]
 
 { #category : #visiting }
-DDerivative >> visitExpression: anExpression [
-	^DEmpty new.
+DDerivative >> visitNullability: anExpression [
+	^DEmpty new
 ]
 
 { #category : #visiting }
-DDerivative >> visitNullability: anExpression [
-	^DEmpty new
+DDerivative >> visitProjection: anExpression [
+	^(anExpression lang accept: self) -> anExpression projection
 ]
 
 { #category : #visiting }
@@ -63,7 +63,7 @@ DDerivative >> visitStar: anExpression [
 { #category : #visiting }
 DDerivative >> visitToken: anExpression [
 	^anExpression token = token 
-		ifTrue: [ DEpsilon new ]
+		ifTrue: [ |eps| eps := DEpsilon new. eps data: token. eps ]
 		ifFalse: [ DEmpty new ]
 ]
 

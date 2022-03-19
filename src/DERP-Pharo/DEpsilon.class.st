@@ -1,21 +1,33 @@
 Class {
 	#name : #DEpsilon,
 	#superclass : #DExpression,
-	#classInstVars : [
-		'instance'
+	#instVars : [
+		'data'
 	],
 	#category : #'DERP-Pharo'
 }
 
-{ #category : #'instance creation' }
-DEpsilon class >> new [
-	instance ifNil: [ instance := super new].
-	^instance
-]
-
 { #category : #visiting }
 DEpsilon >> accept: aVisitor [
 	^aVisitor visitEpsilon: self.
+]
+
+{ #category : #accessing }
+DEpsilon >> data [
+
+	^ data
+]
+
+{ #category : #accessing }
+DEpsilon >> data: anObject [
+
+	data := anObject
+]
+
+{ #category : #initialization }
+DEpsilon >> initialize [ 
+	super initialize.
+	data := OrderedCollection new.
 ]
 
 { #category : #'as yet unclassified' }

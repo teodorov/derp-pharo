@@ -21,11 +21,16 @@ DAbstractVisitor >> visitEpsilon: anExpression [
 
 { #category : #visiting }
 DAbstractVisitor >> visitExpression: anExpression [
-	^self subclassResponsibility 
+	^self shouldNotImplement 
 ]
 
 { #category : #visiting }
 DAbstractVisitor >> visitNullability: anExpression [
+	^self subclassResponsibility 
+]
+
+{ #category : #visiting }
+DAbstractVisitor >> visitProjection: anExpression [
 	^self subclassResponsibility 
 ]
 

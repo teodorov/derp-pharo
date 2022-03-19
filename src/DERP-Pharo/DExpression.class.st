@@ -9,6 +9,11 @@ DExpression >> , anotherExpression [
 	^DConcatenation lhs: self rhs: anotherExpression.
 ]
 
+{ #category : #parsers }
+DExpression >> -> aBlock [
+	^DProjection new lang: self; projection: aBlock; yourself
+]
+
 { #category : #visiting }
 DExpression >> accept: aVisitor [
 	^aVisitor visitExpression: self.
@@ -33,6 +38,12 @@ DExpression >> nullable [
 { #category : #parsers }
 DExpression >> optional [
 	^self | DEpsilon new.
+]
+
+{ #category : #'as yet unclassified' }
+DExpression >> parse: aStream [
+	aStream atEnd ifTrue: [ ^self accept: DParseNull new ].
+	^(DDerivative language: self token: aStream next) parse: aStream.
 ]
 
 { #category : #parsers }
