@@ -16,6 +16,11 @@ DUnion class >> lhs: lhs rhs: rhs [
 		yourself
 ]
 
+{ #category : #visiting }
+DUnion >> accept: aVisitor [
+	^aVisitor visitUnion: self.
+]
+
 { #category : #'as yet unclassified' }
 DUnion >> derivative: aToken [
 	^self class lhs: (self lhs derivative: aToken) rhs: (self rhs derivative: aToken).
@@ -36,6 +41,15 @@ DUnion >> lhs: anObject [
 { #category : #'as yet unclassified' }
 DUnion >> nullable [
 	^self lhs nullable or: [self rhs nullable]
+]
+
+{ #category : #printing }
+DUnion >> printOn: aStream [
+	aStream nextPut: $(.
+	self lhs printOn: aStream.
+	aStream nextPutAll: ' | '.
+	self rhs printOn: aStream.
+	aStream nextPut: $).
 ]
 
 { #category : #accessing }

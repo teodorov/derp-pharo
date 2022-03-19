@@ -16,6 +16,11 @@ DConcatenation class >> lhs: lhs rhs: rhs [
 		yourself
 ]
 
+{ #category : #visiting }
+DConcatenation >> accept: aVisitor [
+	^aVisitor visitConcatenation: self.
+]
+
 { #category : #'as yet unclassified' }
 DConcatenation >> derivative: aToken [
 	^ DUnion
@@ -42,6 +47,16 @@ DConcatenation >> lhs: anObject [
 { #category : #'as yet unclassified' }
 DConcatenation >> nullable [
 	^self lhs nullable and: [self rhs nullable]
+]
+
+{ #category : #printing }
+DConcatenation >> printOn: aStream [
+	aStream nextPut: $(.
+	self lhs printOn: aStream.
+	aStream nextPut: $,.
+	aStream nextPut: $ .
+	self rhs printOn: aStream.
+	aStream nextPut: $).
 ]
 
 { #category : #accessing }

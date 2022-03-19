@@ -12,6 +12,11 @@ DNullability class >> exp: op [
 	^self new exp: op.
 ]
 
+{ #category : #visiting }
+DNullability >> accept: aVisitor [
+	^aVisitor visitNullability: self.
+]
+
 { #category : #accessing }
 DNullability >> exp [
 
@@ -27,4 +32,10 @@ DNullability >> exp: anObject [
 { #category : #'as yet unclassified' }
 DNullability >> nullable [ 
 	^self exp nullable
+]
+
+{ #category : #printing }
+DNullability >> printOn: aStream [
+	exp printOn: aStream.
+	aStream nextPutAll: ' delta'.
 ]

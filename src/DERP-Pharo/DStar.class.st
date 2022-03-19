@@ -13,6 +13,11 @@ DStar class >> exp: op [
 	
 ]
 
+{ #category : #visiting }
+DStar >> accept: aVisitor [
+	^aVisitor visitStar: self.
+]
+
 { #category : #'as yet unclassified' }
 DStar >> derivative: aToken [
 	^DConcatenation lhs: (self exp derivative: aToken) rhs: (self class exp: self exp).
@@ -33,4 +38,10 @@ DStar >> exp: anObject [
 { #category : #'as yet unclassified' }
 DStar >> nullable [
 	^true
+]
+
+{ #category : #printing }
+DStar >> printOn: aStream [
+	exp printOn: aStream.
+	aStream nextPutAll: ' star'.
 ]

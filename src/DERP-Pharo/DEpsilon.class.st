@@ -13,7 +13,17 @@ DEpsilon class >> new [
 	^instance
 ]
 
+{ #category : #visiting }
+DEpsilon >> accept: aVisitor [
+	^aVisitor visitEpsilon: self.
+]
+
 { #category : #'as yet unclassified' }
 DEpsilon >> nullable [
 	^true
+]
+
+{ #category : #printing }
+DEpsilon >> printOn: aStream [
+	aStream nextPut: $ε.
 ]
