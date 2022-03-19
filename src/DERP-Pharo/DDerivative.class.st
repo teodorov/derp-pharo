@@ -31,13 +31,6 @@ DDerivative >> token: anObject [
 
 { #category : #visiting }
 DDerivative >> visitConcatenation: anExpression [
-	"^DUnion
-		  lhs: (DConcatenation
-						lhs: (DNullability exp: anExpression lhs)
-						rhs: (anExpression rhs accept: self))
-		  rhs: (DConcatenation 
-						lhs: (anExpression lhs accept: self) 
-						rhs: anExpression rhs)"
 	^ (anExpression lhs delta, (anExpression rhs accept: self))
 	| ((anExpression lhs accept: self), anExpression rhs).
 ]
@@ -64,9 +57,7 @@ DDerivative >> visitNullability: anExpression [
 
 { #category : #visiting }
 DDerivative >> visitStar: anExpression [
-	^DConcatenation
-		lhs: (anExpression exp accept: self) 
-		rhs: (DStar exp: anExpression)
+	^(anExpression exp accept: self), anExpression
 ]
 
 { #category : #visiting }
@@ -78,7 +69,5 @@ DDerivative >> visitToken: anExpression [
 
 { #category : #visiting }
 DDerivative >> visitUnion: anExpression [
-	^DUnion
-		lhs: (anExpression lhs accept: self)
-		rhs: (anExpression rhs accept: self)
+	^(anExpression lhs accept: self) | (anExpression rhs accept: self)
 ]

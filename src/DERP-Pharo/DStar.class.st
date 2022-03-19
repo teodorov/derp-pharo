@@ -20,7 +20,7 @@ DStar >> accept: aVisitor [
 
 { #category : #'as yet unclassified' }
 DStar >> derivative: aToken [
-	^DConcatenation lhs: (self exp derivative: aToken) rhs: (self class exp: self exp).
+	^DConcatenation lhs: (self exp derivative: aToken) rhs: self.
 ]
 
 { #category : #accessing }
