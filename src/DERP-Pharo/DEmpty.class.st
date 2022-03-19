@@ -1,0 +1,14 @@
+Class {
+	#name : #DEmpty,
+	#superclass : #DExpression,
+	#classInstVars : [
+		'instance'
+	],
+	#category : #'DERP-Pharo'
+}
+
+{ #category : #'instance creation' }
+DEmpty class >> new [
+	instance ifNil: [ instance := super new].
+	^instance
+]
