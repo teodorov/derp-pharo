@@ -32,7 +32,7 @@ DExpression >> derivative: aToken [
 
 { #category : #'as yet unclassified' }
 DExpression >> nullable [
-	^false
+	^self accept: (DNullable new).
 ]
 
 { #category : #parsers }

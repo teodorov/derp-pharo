@@ -33,11 +33,6 @@ DUnion >> lhs: anObject [
 	lhs := anObject
 ]
 
-{ #category : #'as yet unclassified' }
-DUnion >> nullable [
-	^self lhs nullable or: [self rhs nullable]
-]
-
 { #category : #printing }
 DUnion >> printOn: aStream [
 	aStream nextPut: $(.

@@ -1,23 +1,8 @@
 Class {
 	#name : #DParseNull,
 	#superclass : #DAbstractVisitor,
-	#instVars : [
-		'p'
-	],
 	#category : #'DERP-Pharo'
 }
-
-{ #category : #accessing }
-DParseNull >> p [
-
-	^ p
-]
-
-{ #category : #accessing }
-DParseNull >> p: anObject [
-
-	p := anObject
-]
 
 { #category : #visiting }
 DParseNull >> visitConcatenation: anExpression [

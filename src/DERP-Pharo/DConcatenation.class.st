@@ -33,11 +33,6 @@ DConcatenation >> lhs: anObject [
 	lhs := anObject
 ]
 
-{ #category : #'as yet unclassified' }
-DConcatenation >> nullable [
-	^self lhs nullable and: [self rhs nullable]
-]
-
 { #category : #printing }
 DConcatenation >> printOn: aStream [
 	aStream nextPut: $(.

@@ -30,11 +30,6 @@ DStar >> exp: anObject [
 	exp := anObject
 ]
 
-{ #category : #'as yet unclassified' }
-DStar >> nullable [
-	^true
-]
-
 { #category : #printing }
 DStar >> printOn: aStream [
 	exp printOn: aStream.

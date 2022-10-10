@@ -29,11 +29,6 @@ DNullability >> exp: anObject [
 	exp := anObject
 ]
 
-{ #category : #'as yet unclassified' }
-DNullability >> nullable [ 
-	^self exp nullable
-]
-
 { #category : #printing }
 DNullability >> printOn: aStream [
 	exp printOn: aStream.

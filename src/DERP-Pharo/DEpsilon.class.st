@@ -30,11 +30,6 @@ DEpsilon >> initialize [
 	data := Set new.
 ]
 
-{ #category : #'as yet unclassified' }
-DEpsilon >> nullable [
-	^true
-]
-
 { #category : #printing }
 DEpsilon >> printOn: aStream [
 	aStream nextPut: $ε.
