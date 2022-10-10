@@ -9,7 +9,7 @@ Class {
 
 { #category : #accessing }
 DDerivative class >> language: aLanguage token: aToken [
-	^aLanguage accept: (self new token: aToken)
+	^aLanguage accept: (self token: aToken)
 ]
 
 { #category : #accessing }
@@ -63,7 +63,7 @@ DDerivative >> visitStar: anExpression [
 { #category : #visiting }
 DDerivative >> visitToken: anExpression [
 	^anExpression token = token 
-		ifTrue: [ |eps| eps := DEpsilon new. eps data: token. eps ]
+		ifTrue: [ |eps| eps := DEpsilon new. eps data add: token. eps ]
 		ifFalse: [ DEmpty new ]
 ]
 

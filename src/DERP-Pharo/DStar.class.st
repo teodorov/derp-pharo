@@ -18,11 +18,6 @@ DStar >> accept: aVisitor [
 	^aVisitor visitStar: self.
 ]
 
-{ #category : #'as yet unclassified' }
-DStar >> derivative: aToken [
-	^DConcatenation lhs: (self exp derivative: aToken) rhs: self.
-]
-
 { #category : #accessing }
 DStar >> exp [
 

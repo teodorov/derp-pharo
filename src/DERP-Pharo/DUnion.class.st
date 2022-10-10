@@ -21,11 +21,6 @@ DUnion >> accept: aVisitor [
 	^aVisitor visitUnion: self.
 ]
 
-{ #category : #'as yet unclassified' }
-DUnion >> derivative: aToken [
-	^self class lhs: (self lhs derivative: aToken) rhs: (self rhs derivative: aToken).
-]
-
 { #category : #accessing }
 DUnion >> lhs [
 

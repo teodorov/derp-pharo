@@ -27,7 +27,7 @@ DEpsilon >> data: anObject [
 { #category : #initialization }
 DEpsilon >> initialize [ 
 	super initialize.
-	data := OrderedCollection new.
+	data := Set new.
 ]
 
 { #category : #'as yet unclassified' }

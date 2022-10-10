@@ -21,17 +21,6 @@ DConcatenation >> accept: aVisitor [
 	^aVisitor visitConcatenation: self.
 ]
 
-{ #category : #'as yet unclassified' }
-DConcatenation >> derivative: aToken [
-	^ DUnion
-		  lhs: (self class 
-						lhs: (DNullability exp: lhs)
-						rhs: (self rhs derivative: aToken))
-		  rhs: (self class 
-						lhs: (self lhs derivative: aToken) 
-						rhs: self rhs)
-]
-
 { #category : #accessing }
 DConcatenation >> lhs [
 

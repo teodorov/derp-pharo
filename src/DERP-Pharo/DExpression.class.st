@@ -27,7 +27,7 @@ DExpression >> delta [
 
 { #category : #'as yet unclassified' }
 DExpression >> derivative: aToken [
-	^DEmpty new.
+	^DDerivative language: self token: aToken
 ]
 
 { #category : #'as yet unclassified' }
@@ -43,7 +43,7 @@ DExpression >> optional [
 { #category : #'as yet unclassified' }
 DExpression >> parse: aStream [
 	aStream atEnd ifTrue: [ ^self accept: DParseNull new ].
-	^(DDerivative language: self token: aStream next) parse: aStream.
+	^(self derivative: aStream next) parse: aStream.
 ]
 
 { #category : #parsers }
@@ -54,7 +54,7 @@ DExpression >> plus [
 { #category : #'as yet unclassified' }
 DExpression >> recognizes: aStream [
 	aStream atEnd ifTrue: [ ^self nullable ].
-	^(self derivative: (aStream next)) recognizes: aStream.
+	^(self derivative: aStream next) recognizes: aStream.
 ]
 
 { #category : #parsers }

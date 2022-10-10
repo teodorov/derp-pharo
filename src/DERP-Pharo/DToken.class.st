@@ -18,14 +18,6 @@ DToken >> accept: aVisitor [
 	^aVisitor visitToken: self.
 ]
 
-{ #category : #'as yet unclassified' }
-DToken >> derivative: aToken [
-
-	^ aToken = token
-		  ifTrue: [ DEpsilon new ]
-		  ifFalse: [ DEmpty new ]
-]
-
 { #category : #printing }
 DToken >> printOn: aStream [
    aStream nextPut: $(.
