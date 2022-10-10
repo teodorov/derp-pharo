@@ -17,8 +17,3 @@ DEmpty class >> new [
 DEmpty >> accept: aVisitor [
 	^aVisitor visitEmpty: self.
 ]
-
-{ #category : #printing }
-DEmpty >> printOn: aStream [
-	aStream nextPutAll: '{}'.
-]

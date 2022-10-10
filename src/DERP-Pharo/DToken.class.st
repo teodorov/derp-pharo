@@ -18,13 +18,6 @@ DToken >> accept: aVisitor [
 	^aVisitor visitToken: self.
 ]
 
-{ #category : #printing }
-DToken >> printOn: aStream [
-   aStream nextPut: $(.
-	token printOn: aStream.
-	aStream nextPutAll: ' asDToken)'.
-]
-
 { #category : #accessing }
 DToken >> token [
 

@@ -29,9 +29,3 @@ DStar >> exp: anObject [
 
 	exp := anObject
 ]
-
-{ #category : #printing }
-DStar >> printOn: aStream [
-	exp printOn: aStream.
-	aStream nextPutAll: ' star'.
-]

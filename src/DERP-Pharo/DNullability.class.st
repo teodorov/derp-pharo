@@ -28,9 +28,3 @@ DNullability >> exp: anObject [
 
 	exp := anObject
 ]
-
-{ #category : #printing }
-DNullability >> printOn: aStream [
-	exp printOn: aStream.
-	aStream nextPutAll: ' delta'.
-]

@@ -33,15 +33,6 @@ DUnion >> lhs: anObject [
 	lhs := anObject
 ]
 
-{ #category : #printing }
-DUnion >> printOn: aStream [
-	aStream nextPut: $(.
-	self lhs printOn: aStream.
-	aStream nextPutAll: ' | '.
-	self rhs printOn: aStream.
-	aStream nextPut: $).
-]
-
 { #category : #accessing }
 DUnion >> rhs [
 

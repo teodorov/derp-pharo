@@ -29,8 +29,3 @@ DEpsilon >> initialize [
 	super initialize.
 	data := Set new.
 ]
-
-{ #category : #printing }
-DEpsilon >> printOn: aStream [
-	aStream nextPut: $ε.
-]

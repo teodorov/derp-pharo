@@ -40,7 +40,7 @@ DExpression >> optional [
 	^self | DEpsilon new.
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #parsing }
 DExpression >> parse: aStream [
 	aStream atEnd ifTrue: [ ^self accept: DParseNull new ].
 	^(self derivative: aStream next) parse: aStream.
@@ -51,7 +51,12 @@ DExpression >> plus [
 	^self, self star
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #printing }
+DExpression >> printOn: aStream [
+	self accept: (DPrinter stream: aStream)
+]
+
+{ #category : #parsing }
 DExpression >> recognizes: aStream [
 	aStream atEnd ifTrue: [ ^self nullable ].
 	^(self derivative: aStream next) recognizes: aStream.

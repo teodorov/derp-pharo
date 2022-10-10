@@ -33,16 +33,6 @@ DConcatenation >> lhs: anObject [
 	lhs := anObject
 ]
 
-{ #category : #printing }
-DConcatenation >> printOn: aStream [
-	aStream nextPut: $(.
-	self lhs printOn: aStream.
-	aStream nextPut: $,.
-	aStream nextPut: $ .
-	self rhs printOn: aStream.
-	aStream nextPut: $).
-]
-
 { #category : #accessing }
 DConcatenation >> rhs [
 
