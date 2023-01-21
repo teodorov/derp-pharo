@@ -42,8 +42,12 @@ DExpression >> optional [
 
 { #category : #parsing }
 DExpression >> parse: aStream [
-	aStream atEnd ifTrue: [ ^self accept: DParseNull new ].
-	^(self derivative: aStream next) parse: aStream.
+
+	aStream atEnd ifTrue: [ 
+		^ self nullable
+			  ifTrue: [ self accept: DParseNull new ]
+			  ifFalse: [ {  } ] ].
+	^ (self derivative: aStream next) parse: aStream
 ]
 
 { #category : #parsers }
